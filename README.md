@@ -13,8 +13,12 @@ The code is in Matlab. A number of functions depend on files in the `/utils` fol
 
 **exactRecoveryDemo.m**: Demonstrates how to use `exactRecover.m` and `exactPageRankRecover.m` to recover a graph from a full set of pairwise node similarities.
 
-## Heuristic recover from incomplete pairwise effective  resistances
+## Heuristic recovery from incomplete pairwise effective  resistances
 **recoverMissing.m**: Given an incomplete set of effective resistances, fills in the missing resistances via the shortest path heuristic described in Section 4.2 of [the paper](https://thePaper). Then attempts to recover a set of edge weights using  `exactRecover.m`, possibly with regularization. Note that some of these edge weights may be negative. One option to clean them up is via `utils/noisyRecoveryCleanup.m`.
+
+## Graph recovery via convex relaxation
+
+**sdpRecover.m**: Given a set of (n choose 2) effective resistance constraints, finds the graph with minimal total degree with all effective resistances below these constraints, by solving the SDP described in Section 4.3 of [the paper](http://thePaper). Any resistance constraint input as 0 is considered to be a non-constraint. Requires [CVX](http://cvxr.com/cvx/) convex programming system to be installed.
 
 # Citation
 
