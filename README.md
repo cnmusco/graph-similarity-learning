@@ -13,6 +13,9 @@ The code is in Matlab. A number of functions depend on files in the `/utils` fol
 
 **exactRecoveryDemo.m**: Demonstrates how to use `exactRecover.m` and `exactPageRankRecover.m` to recover a graph from a full set of pairwise node similarities.
 
+## Heuristic recover from incomplete pairwise effective  resistances
+**recoverMissing.m**: Given an incomplete set of effective resistances, fills in the missing resistances via the shortest path heuristic described in Section 4.2 of [the paper](https://thePaper). Then attempts to recover a set of edge weights using  `exactRecover.m`, possibly with regularization. Note that some of these edge weights may be negative. One option to clean them up is via `utils/noisyRecoveryCleanup.m`.
+
 # Citation
 
 > @article{muscostsourakakis2018similarities, 
