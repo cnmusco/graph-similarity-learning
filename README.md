@@ -16,7 +16,15 @@ The code is in Matlab. A number of functions depend on files in the `/utils` fol
 ## Heuristic recovery from incomplete pairwise effective  resistances
 **recoverMissing.m**: Given an incomplete set of effective resistances, fills in the missing resistances via the shortest path heuristic described in Section 4.2 of [the paper](https://thePaper). Then attempts to recover a set of edge weights using  `exactRecover.m`, possibly with regularization. Note that some of these edge weights may be negative. One option to clean them up is via `utils/noisyRecoveryCleanup.m`.
 
-## Graph recovery via convex relaxation
+## Graph learning via least squares minimization
+
+We provide two gradient/coordinate descent based methods which attempt to solve the non-convex problem of finding a graph whose effective resistances are as close as possible to the given resistances in `l2` norm. See Sections 3.3 and 4.2 of [the paper](http://thePaper) for details. See comments in the code for details on tuning and optimization method options. Both methods allow for a regularization parameter `lambda`, and minimize the distance to the target resistances plus `lambda*tr(L)`.
+
+**graphGDSmall.m**: Use this method for small graphs, where is is possible to fit an (n choose 2) x n edge vertex incidence matrix in memory.
+
+**graphGD.m**: Use this method for large graphs. It will avoid computing an (n choose 2) x n edge vertex incidence matrix. For large graphs, it will be neccesary to set batchSize << (n choose 2).
+
+## Graph learning via convex relaxation
 
 **sdpRecover.m**: Given a set of (n choose 2) effective resistance constraints, finds the graph with minimal total degree with all effective resistances below these constraints, by solving the SDP described in Section 4.3 of [the paper](http://thePaper). Any resistance constraint input as 0 is considered to be a non-constraint. Requires [CVX](http://cvxr.com/cvx/) convex programming system to be installed.
 
