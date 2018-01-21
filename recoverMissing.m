@@ -10,7 +10,7 @@ function [ w ] = recoverMissing( r, lambda )
     %  * r: (n choose 2) length vector of pairwise effective resistances.
     %        r(i) = 0 if the i^th effective resistance is missing.
     %
-    %  * lambda: regularizatoin parameter with which to run exact recover
+    %  * lambda: regularization parameter with which to run exact recover
     %    procedure. lambda >= 0.
     %
     % output :
