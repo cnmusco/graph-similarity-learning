@@ -31,6 +31,8 @@ myCluster.NumWorkers = 4;
 parpool(4);
 ```
 
+**leastSquaresDemo.m**: Demonstrates how to use `graphGDSmall.m` and `graphGD.m` on a small random k-nearest neighbors graph.
+
 
 ## Graph learning via convex relaxation
 
