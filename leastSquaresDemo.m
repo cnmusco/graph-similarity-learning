@@ -19,10 +19,9 @@ rcont(cind) = rstar(cind);
 myCluster = parcluster('local');
 myCluster.NumWorkers = 4;
 parpool(4)
-% test the method for small graphs, using full set of constraints to check
-% convergence
+% test the method for small graphs, using full set of constraints to check convergence
 [wtildes,rtildes,optErrs,Aerrs] = effResGDSmall(rstar, L, 0, .001*ones(size(wstar)), 2000);
 
 %test the method for larger graphs, with stochastic coordinate descent
 %instead of full gradient computations. Again use full set of constraints.
-[wtilde rtilde] = effResGD(rstar,u,v, L, 0, .001*ones(size(wstar)), 1000,0,3000, 'GDLS');
+[wtildes,rtildes,optErrs,Aerrs] = effResGD(rstar,u,v, L, 0, .001*ones(size(wstar)), 1000,0,3000, 'GDLS');

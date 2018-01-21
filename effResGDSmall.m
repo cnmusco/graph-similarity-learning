@@ -7,6 +7,9 @@ function [wtildes,rtildes,optErrs,Aerrs] = effResGDSmall(r, Ltrue, lambda, w0, i
 %   r: effective resistance target vector. (n choose 2) length sparse
 %   vector with all nonzeros considered as constraints.
 
+%       Note that the ordering of the input vector matters. It should be
+%       consistent with the ordering used by pair2index.m and e.g. A2w.m
+
 %   Ltrue: For evaluation, you may pass in the true Laplacian to measure
 %   error to it. If the true Laplacian is unknown, just pass in zeros(n,n).
 

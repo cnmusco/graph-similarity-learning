@@ -15,7 +15,9 @@ function [ w ] = exactRecover( r,lambda )
     %
     % input :
     %
-    %  * r: (n choose 2) length vector of pairwise effective resistances
+    %  * r: (n choose 2) length vector of pairwise effective resistances. 
+    %       Note that the ordering of the input vector matters. It should be
+    %       consistent with the ordering used by pair2index.m and e.g. A2w.m
     %
     %  * lambda: regularization parameter, lambda >= 0.
     %

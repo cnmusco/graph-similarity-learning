@@ -7,6 +7,9 @@ function [wtildes,rtildes,optErrs,Aerrs] = effResGD(r, u,v, Ltrue, lambda, w0, i
 %   r: effective resistance target vector. (n choose 2) length sparse
 %   vector with all nonzeros considered as constraints.
 
+%   Note that the ordering of the input vector matters. It should be
+%   consistent with the ordering used by pair2index.m and e.g. A2w.m
+
 %   u,v: (n choose 2) length vectors containing ids of edge end points in 
 %        canonical edge ordering. These vectors can be obtained by the
 %        utils/getRes.m method and are always the same for a given n. Passed in for efficiency.
