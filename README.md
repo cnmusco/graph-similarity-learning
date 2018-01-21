@@ -1,5 +1,5 @@
 # Learning Networks from Random Walk-Based Node Similarities
-Algorithms for learning network structure from effective resistances and other random-walk-based similarities.
+Algorithms for learning network structure from effective resistances and other random-walk-based similarities, as described in [Learning Networks from Random Walk-Based Node Similarities](http://thePaper). Includes methods for exact recovery, heuristic methods, and optimization-based approaches (both convex and non-convex). See the paper for details on and comparision of these methods.
 
 # Matlab Code
 
