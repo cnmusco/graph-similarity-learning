@@ -24,6 +24,14 @@ We provide two gradient/coordinate descent based methods which attempt to solve 
 
 **graphGD.m**: Use this method for large graphs. It will avoid computing an (n choose 2) x n edge vertex incidence matrix. For large graphs, it will be neccesary to set batchSize << (n choose 2).
 
+Note that both the above methods make use of paralleism via `parfor` loops. You can set the number of paralell workers before running these methods, using a snippet like:
+```
+myCluster = parcluster('local');
+myCluster.NumWorkers = 4;
+parpool(4);
+```
+
+
 ## Graph learning via convex relaxation
 
 **sdpRecover.m**: Given a set of (n choose 2) effective resistance constraints, finds the graph with minimal total degree with all effective resistances below these constraints, by solving the SDP described in Section 4.3 of [the paper](http://thePaper). Any resistance constraint input as 0 is considered to be a non-constraint. Requires [CVX](http://cvxr.com/cvx/) convex programming system to be installed.
