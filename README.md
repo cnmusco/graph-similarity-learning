@@ -1,7 +1,7 @@
 # Learning Networks from Random Walk-Based Node Similarities
-This is a collection of algorithms for learning network structure from effective resistances and other random-walk-based similarities, as described in the paper [Learning Networks from Random Walk-Based Node Similarities](http://thePaper). 
+This is a collection of algorithms for learning network structure from effective resistances and other random walk-based similarities, as described in the paper [Learning Networks from Random Walk-Based Node Similarities](http://thePaper). 
 
-Includes methods for exact graph recovery, heuristic methods, and optimization-based approaches (both convex and non-convex). See the paper for details on and comparision of these methods.
+The repository includes methods for exact graph recovery, heuristic methods, and optimization-based approaches (both convex and non-convex). See the paper for details and comparision of these methods.
 
 # Matlab Code
 
@@ -22,13 +22,13 @@ The code is in Matlab. A number of functions depend on files in the `/utils` fol
 
 We provide two gradient/stochastic coordinate descent based methods which attempt to solve the non-convex problem of finding a graph whose effective resistances are as close as possible to the given resistances in `l2` norm. See Sections 3.3 and 4.2 of [the paper](http://thePaper) for details. 
 
-Any effective resistance input as 0 is considered to be un-constrained. See comments in the code for details on tuning and optimization method options. Both methods allow for a regularization parameter `lambda`, and minimize the distance to the target resistances plus `lambda*tr(L)`.
+Any effective resistance input as 0 is considered to be un-constrained. See comments in the code for details on tuning and optimization method options. Both methods allow for a regularization parameter `lambda`, and minimize the distance to the target resistances plus `lambda*tr(L)`. 
 
 **effResGDSmall.m**: Use this method for small graphs, where is is possible to fit an `(n choose 2) x n` edge-vertex incidence matrix in memory.
 
 **effResGD.m**: Use this method for large graphs. It will avoid computing an `(n choose 2) x n` edge-vertex incidence matrix. For large graphs, it is generally advised to set `batchSize << (n choose 2)`.
 
-Note that both the above methods make use of paralleism via `parfor` loops. You can set the number of paralell workers before running these methods, using a snippet like:
+Note that both the above methods make use of parallelism via `parfor` loops. You can set the number of parallel workers before running these methods, using a snippet like:
 ```
 myCluster = parcluster('local');
 myCluster.NumWorkers = 4;
